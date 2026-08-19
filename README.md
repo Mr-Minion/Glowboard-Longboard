@@ -20,3 +20,9 @@ https://learn.adafruit.com/trinket-neopixel-led-longboard/overview
    Identify the ID of your NFC tag in order to use in in Code 7.
 7) NFC_switch_mode.ino
    Changing the mode and colors through NFC tags
+
+**Circuit setup**
+Arduino UNO  -  Neopixel LED strip
+         5V  -  5V
+        GND  -  GND
+      PIN 2  -  DIN
