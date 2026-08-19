@@ -23,6 +23,7 @@ https://learn.adafruit.com/trinket-neopixel-led-longboard/overview
 
 **Circuit setup**
 Arduino UNO  -  Neopixel LED strip
-         5V  -  5V
+1.       5V  -  5V
         GND  -  GND
-      PIN 2  -  DIN
+        PIN 2  -  DIN
+
