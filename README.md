@@ -23,16 +23,17 @@ https://learn.adafruit.com/trinket-neopixel-led-longboard/overview
    Changing the mode and colors through NFC tags
 
 **Circuit setup**
-Arduino UNO   -  Neopixel LED strip
-1.        5V  -  5V
-         GND  -  GND
-       PIN 2  -  DIN
+Arduino UNO → Neopixel LED strip
+1.        5V → 5V
+         GND → GND
+        PIN2 → DIN
 
-Arduino UNO   -  NFC reader RFID-RC522
-1.        5V  -  SDA
-         GND  -  SCK
-       PIN 2  -  MOSI
-           dd - MISO
-         GND  -  RQ
-         GND  -  RST
-         3.3V - 3.3V
+NFC reader RFID-RC522 → Arduino UNO
+1.     RC522 SDA → D10  
+       RC522 SCK → D13  
+       RC522 MOSI → D11  
+       RC522 MISO → D12  
+       RC522 RST → D9  
+       RC522 3.3V → 3.3V  
+       RC522 GND → GND
+
