@@ -45,7 +45,7 @@ void loop() {
       if (tag == "c678167e") mode = 1; // Green flow for blue tag
       if (tag == "8b308261") mode = 2; // Tschugger - white card
       if (tag == "4e6642f27580") mode = 3; // Swiss Cross - by Lonza
-      if (tag == "cafebabe") mode = 4; // OFF
+    //   if (tag == "8b308261") mode = 4; // OFF
   }
 
   switch(mode) {
@@ -66,7 +66,7 @@ void loop() {
         // Backward half (mirrored)
         pixels.setPixelColor(NUMPIXELS - i, c);
     }
-    pixels.setBrightness(20);   // adjust freely
+    pixels.setBrightness(50);   // adjust freely
     pixels.show();
     offset--;   // backward movement
     delay(90); //lower delay number == faster; higher delay number == slower
@@ -94,10 +94,10 @@ else c = 0;
         pixels.setPixelColor(i, c);
         pixels.setPixelColor(NUMPIXELS - i, c);
     }
-    pixels.setBrightness(100);   // adjust freely
+    pixels.setBrightness(150);   // adjust freely
     pixels.show();
     offset--;
-    delay(20);
+    delay(90);
     break;
 
 // ---------------------------------------------------------
@@ -122,6 +122,11 @@ case 3:  // Tschugger flow
     offset--;
     delay(90);
     break;
+
+    case 4:  // OFF mode
+    pixels.clear();
+    pixels.show();
+    break;
   }
 
 
@@ -140,7 +145,7 @@ if (mode == 1) {
 static uint32_t prevTimeCase2 = 0;   // independent timer for case 2
 
 if (mode == 2) {
-    if ((t - prevTimeCase2) > 800) {   // <<< adjust this value
+    if ((t - prevTimeCase2) > 500) {   // <<< adjust this value
 
         if (color == TSCHUGGER_ROT)
             color = TSCHUGGER_BLAU;
@@ -166,18 +171,3 @@ if (mode == 3) {
     }
 }
 }
-
-// t = millis();
-//  if(mode != 1) {   // do NOT change color in Green Flow
-//     if((t - prevTime) > 1000) {  // 1000 == 1 sec
-
-//         // Alternate between red and blue
-//         if (color == TSCHUGGER_ROT)
-//             color = TSCHUGGER_BLAU;
-//         else
-//             color = TSCHUGGER_ROT;
-
-//         prevTime = t;
-//     }
-//   }
-// }
