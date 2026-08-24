@@ -3,11 +3,11 @@ This is a modified and updated built on the Project **Trinket NeoPixel LED Longb
 https://learn.adafruit.com/trinket-neopixel-led-longboard/overview
 
 **Improvement alterations**:
-1) Controller: Switching from Adafruit Trinket - Mini Microcontroller - 5V Logic to Arduino UNO.
-  Connection to Adafruit Trinket - Mini Microcontroller - 5V Logic with USB 2.0 is no longer supported. No Serial Monitor available in Adafruit Trinket that is required for the NFC reader part.
-2) Powerboost 500C and LiPo Battery are replaced with a Powerbank that has an output of 5.0V. Therefore no Powerboost 500C is needed anymore
-3) NFC reader RFID-RC522
-4) On/Off button is replaced by a NFC reader and NFC tags to switch colors and sequences.
+1) Controller: Arduino UNO instead of Adafruit Trinket - Mini Microcontroller - 5V Logic
+   Connection to Adafruit Trinket - Mini Microcontroller - 5V Logic with USB 2.0 is no longer supported. No Serial Monitor available in Adafruit Trinket that is required for the NFC reader part.
+2) Powerbank with 5.0V output instead of Powerboost 500C and LiPo Battery
+3) NFC reader RFID-RC522 instead of On/Off switch
+   Turn On/Off and color sequence switch through NFC tags
 
 **Code descriptions**:
 1) The codes created are listed in the evolving pattern that they occurred
