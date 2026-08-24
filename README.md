@@ -1,5 +1,5 @@
 Neopixel Longboard Project
-Inspiration and source code originated from the the project **Trinket NeoPixel LED Longboard**, created by Ruiz Brothers:
+This is a modified and updated built on the Project **Trinket NeoPixel LED Longboard**, created by Ruiz Brothers:
 https://learn.adafruit.com/trinket-neopixel-led-longboard/overview
 
 **Improvement alterations**:
