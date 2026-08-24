@@ -9,11 +9,11 @@ https://learn.adafruit.com/trinket-neopixel-led-longboard/overview
 3) NFC reader RFID-RC522
 4) On/Off button is replaced by a NFC reader and NFC tags to switch colors and sequences.
 
-**Codes**:
+**Code descriptions**:
 1) The codes created are listed in the evolving pattern that they occurred
 2) Longboard_green_flow.ino
    This is the adjusted code from the project Trinket NeoPixel LED Longboard adjusted for Arduino UNO
-3) Longgboard_SwissFlag.ino
+3) Longboard_SwissFlag.ino
    Created for Swiss National day. Change two-color to match your requirement
 4) Longboard_PRIDE_RAINBOW.ino
    For PRIDE or Fasnacht/Fasching/German Carnival or Party on the Longboard
