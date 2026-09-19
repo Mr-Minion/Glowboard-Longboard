@@ -37,7 +37,7 @@ NFC reader RFID-RC522 → Arduino UNO
        RC522 3.3V → 3.3V  
        RC522 GND → GND
 
-***Arduino UNO Box***
+**Arduino UNO Box**
 Box and improved lid to store the Arduino UNO are published in TinkerCAD:
 https://www.tinkercad.com/things/7AmMrEfEgRs-arduino-uno-rfid-skateboard-box
 Box-Clip and clip holder are the design of Ruiz Brothers
