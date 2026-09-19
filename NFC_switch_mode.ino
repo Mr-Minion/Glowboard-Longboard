@@ -23,6 +23,26 @@ uint32_t TSCHUGGER_BLAU = pixels.Color(0, 0, 255);
 uint32_t SWISS_WHITE = pixels.Color(255, 255, 255);
 uint32_t prevTime;
 
+// PRIDE colors
+uint32_t PRIDE_RED     = pixels.Color(255, 0, 0);
+uint32_t PRIDE_ORANGE  = pixels.Color(255, 127, 0);
+uint32_t PRIDE_YELLOW  = pixels.Color(255, 255, 0);
+uint32_t PRIDE_GREEN   = pixels.Color(0, 255, 0);
+uint32_t PRIDE_BLUE    = pixels.Color(0, 0, 255);
+uint32_t PRIDE_PURPLE  = pixels.Color(148, 0, 211);
+
+uint32_t prideColors[] = {
+  pixels.Color(255, 0, 0),      // Red
+  pixels.Color(255, 127, 0),    // Orange
+  pixels.Color(255, 255, 0),    // Yellow
+  pixels.Color(0, 255, 0),      // Green
+  pixels.Color(0, 0, 255),      // Blue
+  pixels.Color(148, 0, 211)     // Purple
+};
+
+uint8_t prideIndex = 0;
+
+
 void setup() {
   pixels.begin();
 //   pixels.setBrightness(20); // 1/3 brightness
@@ -41,11 +61,15 @@ void loop() {
       for (byte i = 0; i < rfid.uid.size; i++) {
           tag += String(rfid.uid.uidByte[i], HEX);
       }
-
+// write the letters of the UID all in lowercase!
       if (tag == "c678167e") mode = 1; // Green flow for blue tag
       if (tag == "8b308261") mode = 2; // Tschugger - white card
       if (tag == "4e6642f27580") mode = 3; // Swiss Cross - by Lonza
-    //   if (tag == "8b308261") mode = 4; // OFF
+      // NFC Stickers
+      if (tag == "1df9c699211080") mode = 1; // Green flow
+      if (tag == "1d61d299211080") mode = 2; // Tschugger
+      if (tag == "1da1d299211080") mode = 4; // Rainbow
+      if (tag == "1d7cb399211080") mode = 5; // OFF
   }
 
   switch(mode) {
@@ -123,7 +147,51 @@ case 3:  // Tschugger flow
     delay(90);
     break;
 
-    case 4:  // OFF mode
+// ---------------------------------------------------------
+// CASE 4 — Rainbow colors
+// ---------------------------------------------------------
+// ---------------------------------------------------------
+// CASE 4 — PRIDE RAINBOW FLOW
+// ---------------------------------------------------------
+case 4:
+{
+    static uint32_t prideTimer = 0;   // independent timer for rainbow cycling
+    uint32_t now = millis();
+
+    // Change color every 400 ms (adjust if needed)
+    if (now - prideTimer > 200) {
+        prideIndex++;
+        if (prideIndex >= 6) prideIndex = 0;
+        prideTimer = now;
+    }
+
+    uint32_t prideColor = prideColors[prideIndex];
+
+    for (i = 0; i < NUMPIXELS; i++) {
+        uint32_t c = 0;
+
+        // 4‑on / 4‑off pattern
+        if (((offset + i) & 7) < 4)
+            c = prideColor;
+
+        // Forward half
+        pixels.setPixelColor(i, c);
+
+        // Backward half (mirrored)
+        pixels.setPixelColor(NUMPIXELS - i, c);
+    }
+
+    pixels.setBrightness(80);   // adjust freely
+    pixels.show();
+    offset--;                   // movement
+    delay(90);
+}
+break;
+
+// ---------------------------------------------------------
+// CASE 5 — OFF
+// ---------------------------------------------------------
+    case 5:  // OFF mode
     pixels.clear();
     pixels.show();
     break;
@@ -155,8 +223,6 @@ if (mode == 2) {
         prevTimeCase2 = t;
     }
 }
-
-
 
 // ---------------------------------------------------------
 // CASE 3 — alternate RED ↔ BLUE every Y ms
